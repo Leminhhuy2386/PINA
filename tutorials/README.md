@@ -16,6 +16,7 @@ Introduction to `Trainer` class|[[.ipynb](tutorial11/tutorial.ipynb),[.py](tutor
 Data structure for SciML: `Tensor`, `LabelTensor`, `Data` and `Graph` |[[.ipynb](tutorial19/tutorial.ipynb),[.py](tutorial19/tutorial.py),[.html](http://mathlab.github.io/PINA/tutorial19/tutorial.html)]|
 Building geometries with `DomainInterface` class|[[.ipynb](tutorial6/tutorial.ipynb),[.py](tutorial6/tutorial.py),[.html](http://mathlab.github.io/PINA/tutorial6/tutorial.html)]|
 Introduction to PINA `Equation` class|[[.ipynb](tutorial12/tutorial.ipynb),[.py](tutorial12/tutorial.py),[.html](http://mathlab.github.io/PINA/tutorial12/tutorial.html)]|
+Solving Multi-Domain Problems with PINA|[[.py](tutorial24/tutorial.py)]|
 
 
 ## Physics Informed Neural Networks

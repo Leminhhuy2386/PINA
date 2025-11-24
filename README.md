@@ -43,6 +43,8 @@ SPDX-License-Identifier: Apache-2.0
 
 - **Highly Flexible**: Whether you're looking for full automation or granular control, PINA adapts to your workflow. High-level abstractions simplify model definition, while expert users can dive deep to fine-tune every aspect of the training and inference process.
 
+- **Multi-Domain Support**: PINA fully supports multi-domain problems where different physics, materials, or boundary conditions apply in different spatial regions. Define complex geometries using domain operations and apply conditions independently to each subdomain.
+
 
 
 ## Installation
@@ -159,6 +161,28 @@ solver  = PINN(problem, model)
 trainer = Trainer(solver, max_epochs=1000, accelerator='gpu')
 trainer.train()
 ```
+
+### Solve Multi-Domain Problems
+PINA fully supports multi-domain problems where different physics or conditions apply in different regions. Simply define multiple domains and specify conditions for each:
+```python
+class MultiDomainProblem(SpatialProblem):
+    output_variables = ["u"]
+    spatial_domain = CartesianDomain({"x": [0, 2], "y": [0, 1]})
+    
+    # Define multiple domains
+    domains = {
+        "domain1": CartesianDomain({"x": [0, 1], "y": [0, 1]}),
+        "domain2": CartesianDomain({"x": [1, 2], "y": [0, 1]}),
+        "interface": CartesianDomain({"x": 1.0, "y": [0, 1]}),
+    }
+    
+    # Apply different conditions to each domain
+    conditions = {
+        "physics_d1": Condition(domain="domain1", equation=Equation(eq1)),
+        "physics_d2": Condition(domain="domain2", equation=Equation(eq2)),
+    }
+```
+For more details, see the [Multi-Domain Guide](docs/MULTI_DOMAIN_GUIDE.md) and [Tutorial 24](tutorials/tutorial24/tutorial.py).
 
 ## Application Programming Interface
 Here's a quick look at PINA's main module. For a better experience and full details, check out the [documentation](https://mathlab.github.io/PINA/).
