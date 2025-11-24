@@ -19,7 +19,7 @@
 # This tutorial will cover:
 #
 # 1. **Basic Multi-Domain Setup**: Defining multiple domains with different conditions
-# 2. **Domain Operations**: Using Union, Intersection, and Difference operations
+# 2. **Domain Operations**: Using Difference operations to create complex geometries
 # 3. **Interface Conditions**: Enforcing continuity across domain boundaries
 # 4. **Complete Multi-Domain Example**: Heat conduction problem with different materials
 #
@@ -51,7 +51,7 @@ from pina.problem import SpatialProblem
 from pina.operator import grad, laplacian
 from pina.solver import PINN
 from pina.model import FeedForward
-from pina.domain import CartesianDomain, EllipsoidDomain, Union, Difference
+from pina.domain import CartesianDomain, EllipsoidDomain, Difference
 from pina.equation import Equation, FixedValue
 from pina.callback import MetricTracker
 
@@ -590,7 +590,7 @@ plt.show()
 #
 # 1. **Multiple Domains**: You can define as many domains as needed using the `domains` dictionary
 #
-# 2. **Domain Operations**: Use `Union`, `Intersection`, `Difference`, and `Exclusion` to create complex geometries
+# 2. **Domain Operations**: Use domain operations like `Difference` to create complex geometries (see tutorial 6 for more operations)
 #
 # 3. **Flexible Conditions**: Apply different equations and boundary conditions to each domain
 #
